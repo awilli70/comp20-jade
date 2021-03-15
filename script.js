@@ -41,9 +41,14 @@ function validate() {
     }
     if ($("input[type='radio']:checked").val() === "delivery") {
         delivery = true;
-        if (street.val() === "") street.parent().append("<strong class='error' style='color: #f00';>&nbsp; Please enter your address</strong>");
-        if (city.val() === "") city.parent().append("<strong class='error' style='color: #f00';>&nbsp; Please enter your city</strong>");
-        submit = false;
+        if (street.val() === "") {
+            street.parent().append("<strong class='error' style='color: #f00';>&nbsp; Please enter your address</strong>");
+            submit = false;
+        }
+        if (city.val() === "") {
+            city.parent().append("<strong class='error' style='color: #f00';>&nbsp; Please enter your city</strong>");
+            submit = false;
+        }   
     }
     if (submit) {
         submitOrder(qtys, delivery)
